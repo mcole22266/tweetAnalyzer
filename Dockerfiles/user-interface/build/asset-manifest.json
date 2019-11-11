@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1eca0d34.chunk.css",
+    "main.js": "/static/js/main.ba6d691a.chunk.js",
+    "main.js.map": "/static/js/main.ba6d691a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.04f892fb.js",
+    "runtime-main.js.map": "/static/js/runtime-main.04f892fb.js.map",
+    "static/js/2.8ea451c9.chunk.js": "/static/js/2.8ea451c9.chunk.js",
+    "static/js/2.8ea451c9.chunk.js.map": "/static/js/2.8ea451c9.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e2b35c2bf059f0d6c79901cbacc68db5.js": "/precache-manifest.e2b35c2bf059f0d6c79901cbacc68db5.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.1eca0d34.chunk.css.map": "/static/css/main.1eca0d34.chunk.css.map",
+    "static/media/App.less": "/static/media/twit-bird.947e3d91.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.04f892fb.js",
+    "static/js/2.8ea451c9.chunk.js",
+    "static/css/main.1eca0d34.chunk.css",
+    "static/js/main.ba6d691a.chunk.js"
+  ]
+}
