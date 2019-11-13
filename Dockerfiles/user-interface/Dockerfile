@@ -1,10 +1,10 @@
-FROM mhart/alpine-node:11 AS builder
+FROM node:12.2.0-alpine AS builder
 WORKDIR /app
 COPY . .
 RUN yarn run build
 
-FROM mhart/alpine-node
+FROM node:12.2.0-alpine
 RUN yarn global add serve
 WORKDIR /app
 COPY --from=builder /app/build .
-CMD ["serve", "-p", "80", "-s", "."]
+CMD ["serve", "-p", "8080", "-s", "."]
