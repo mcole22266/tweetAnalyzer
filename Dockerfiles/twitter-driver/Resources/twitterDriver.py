@@ -27,6 +27,15 @@ class Driver():
         
         return api
 
+    def getUserTweets(self, username, maxtweets=20):
+        timeline = self.api.GetUserTimeline(screen_name=username, count=maxtweets)
+        return timeline 
+
 # ------ TEST FUNCTIONALITY -------
 if __name__ == "__main__":
     driver = Driver()
+    username = input("Twitter Username: ")
+    timeline = driver.getUserTweets(username)
+
+    for tweet in timeline:
+        print(f'{tweet.created_at}: {tweet.text}')
