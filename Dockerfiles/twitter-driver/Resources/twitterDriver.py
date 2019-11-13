@@ -31,11 +31,26 @@ class Driver():
         timeline = self.api.GetUserTimeline(screen_name=username, count=maxtweets)
         return timeline 
 
+    def getHashtagTweets(self, hashtag):
+        tweets = []
+        results = self.api.GetSearch(term=hashtag)
+        for result in results:
+            if result.hashtags:
+                hashtaglist = []
+                for resulthashtag in result.hashtags:
+                    hashtaglist.append(resulthashtag.text)
+                    if hashtag[1:] in hashtaglist:  # hashtag[1:] removes the hashtag itself
+                        tweets.append(result)
+        return tweets 
+
 # ------ TEST FUNCTIONALITY -------
 if __name__ == "__main__":
     driver = Driver()
-    username = input("Twitter Username: ")
-    timeline = driver.getUserTweets(username)
+    userinput = input("Twitter Username or hashtag: ")
+    if userinput[0] == '#':
+        results = driver.getHashtagTweets(userinput)
+    else:
+        results = driver.getUserTweets(userinput)
 
-    for tweet in timeline:
+    for tweet in results:
         print(f'{tweet.created_at}: {tweet.text}')
