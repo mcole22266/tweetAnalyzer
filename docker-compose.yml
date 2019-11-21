@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+    backend-flask:
+        container_name: backend-flask
+        build:
+            context: ./Dockerfiles/backend-flask/
+            dockerfile: Dockerfile
+        ports:
+            - "8000:8000"
+    user-interface:
+        container_name: user-interface
+        build:
+            context: ./Dockerfiles/user-interface/
+            dockerfile: Dockerfile
+        ports:
+            - "8080:8080"
