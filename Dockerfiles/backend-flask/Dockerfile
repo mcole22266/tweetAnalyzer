@@ -4,6 +4,8 @@ LABEL Michael Cole <mcole042891@gmail.com>
 
 COPY Resources/* /
 
-RUN pip install python-twitter 
+RUN pip install -r requirements.txt
 
-CMD ["python", "twitterDriver.py"]
+EXPOSE 8000
+
+CMD ["python", "app.py"]
