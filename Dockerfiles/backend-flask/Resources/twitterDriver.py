@@ -35,6 +35,7 @@ class Driver():
         return returnDict 
 
     def getHashtagTweets(self, hashtag):
+        '''This needs some work as it uses a regular search rather than searching for hashtags specifically'''
         tweets = []
         results = self.api.GetSearch(term=hashtag)
         for result in results:
