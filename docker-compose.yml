@@ -6,8 +6,18 @@ services:
         build:
             context: ./Dockerfiles/backend-flask/
             dockerfile: Dockerfile
+        links:
+            - db
         ports:
-            - "8000:8000"
+            - "5000:5000"
+    db:
+        image: mysql:5.7
+        ports:
+            - "32000:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: r00tp4ss
+        volumes:
+            - ./Dockerfiles/db:/docker-entrypoint-initdb.d/:ro
     user-interface:
         container_name: user-interface
         build:
