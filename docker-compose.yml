@@ -24,6 +24,6 @@ services:
             context: ./Dockerfiles/user-interface/
             dockerfile: Dockerfile
         links:
-            - backend
+            - backend-flask
         ports:
             - "8080:8080"
