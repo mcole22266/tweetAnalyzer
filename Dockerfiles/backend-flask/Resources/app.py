@@ -25,7 +25,7 @@ def testDB(tablename):
             'password': 'r00tp4ss',
             'host': 'db',
             'port': '3306',
-            'database': 'tweetanalyzer'
+            'database': 'testdb'
             }
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor()
