@@ -23,5 +23,7 @@ services:
         build:
             context: ./Dockerfiles/user-interface/
             dockerfile: Dockerfile
+        links:
+            - backend
         ports:
             - "8080:8080"
