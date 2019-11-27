@@ -1,0 +1,6 @@
+DEBUG = 'True'
+SQL_USER = 'root'
+SQL_PASSWORD = 'r00tp4ss'
+SQL_HOSTNAME = 'db'
+SQL_PORT = '3306'
+SQL_DATABASE_NAME = 'testdb'

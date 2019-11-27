@@ -5,7 +5,17 @@ import json
 from twitterDriver import Driver 
 
 
-app = Flask(__name__)
+app = Flask(__name__, instance_relative_config=True)  # instance_relative_config for config.settings
+
+app.config.from_object('config.settings')
+
+@app.route("/configEnv/<var>")  # used for testing purposes only
+def testConfig(var):
+    return json.dumps(app.config[var])
+
+@app.route('/crash')
+def crash():
+    raise Exception()
 
 @app.route("/user/<username>")
 def userTweets(username):
@@ -21,11 +31,11 @@ def userTweets_setnumber(username, numTweets):
 @app.route("/db/<tablename>")
 def testDB(tablename):
     config = {
-            'user': 'root',
-            'password': 'r00tp4ss',
-            'host': 'db',
-            'port': '3306',
-            'database': 'testdb'
+            'user': app.config['SQL_USER'],
+            'password': app.config['SQL_PASSWORD'],
+            'host': app.config['SQL_HOSTNAME'],
+            'port': app.config['SQL_PORT'],
+            'database': app.config['SQL_DATABASE_NAME'] 
             }
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor()
@@ -38,4 +48,4 @@ def testDB(tablename):
 
 if __name__ == '__main__':
     api = Driver()
-    app.run(host='0.0.0.0', port=5000)  # port 5000 is Flask default
+    app.run(host='0.0.0.0', port=5000, debug=app.config['DEBUG'])  # port 5000 is Flask default

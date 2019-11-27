@@ -1,12 +1,17 @@
-FROM python:3.7
+FROM python:3.7-slim
 
-LABEL Michael Cole <mcole042891@gmail.com>
+LABEL maintainer="Michael Cole" \
+      email="mcole042891@gmail.com" \
+      description="TODO: Update Container Description"
 
-WORKDIR /app
+ENV INSTALL_PATH /tweetanalyzer
+RUN mkdir -p $INSTALL_PATH
+WORKDIR $INSTALL_PATH
 
-COPY Resources/* /app/
-
+COPY Resources/requirements.txt requirements.txt
 RUN pip install -r requirements.txt
+
+COPY Resources/ ./
 
 EXPOSE 5000
 
