@@ -1,4 +1,4 @@
-DEBUG = 'True'
+DEBUG = True
 SQL_USER = 'root'
 SQL_PASSWORD = 'r00tp4ss'
 SQL_HOSTNAME = 'db'
